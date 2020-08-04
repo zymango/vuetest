@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <h2>{{message}}</h2>
+    <h2 v-once>{{message}}</h2>
+    <!--v-once 该指令不需要任何表达式 -->
+    <!-- 该指令表示元素和组件只渲染一次，不会随着数据的改变而改变 -->
+  </div>
+  
+  <script src="../js/vue.js"></script>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        message: '你好'
+      },
+      methods: {}
+    });
+  </script>
+</body>
+</html>

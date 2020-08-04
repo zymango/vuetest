@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <!-- 
+      v-if:当前条件为false时，包含v-if指令的元素，根本就不会存在在dom中
+     -->
+    <h2 v-if="isshow" id="aaa">{{msg}}</h2>
+    <!-- v-show:当条件为false时，v-show只是给我们元素添加了一个行内样式：display=none -->
+    <h2 v-show="isshow" id="bbb">{{msg}}</h2>
+    <!-- 当显示隐藏频率高的时候，使用v-show,只切换一次时，使用v-if -->
+  </div>
+  
+  <script src="../js/vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: {
+        msg: "你好啊",
+        isshow: true
+      },
+      methods: {}
+    });
+  </script>
+</body>
+</html>

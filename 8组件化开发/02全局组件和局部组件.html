@@ -1,0 +1,48 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+ </head>
+ <body>
+   <div id="app">
+     <cpn></cpn>
+     <cpn></cpn>
+     <cpn></cpn>
+   </div>
+   <div id="app2">
+    <cpn></cpn>
+   </div>
+   <script src="../js/vue.js"></script>
+   <script>
+     //1.组件构造器
+      const cpnC = Vue.extend({
+        template:`
+        <div>
+          <h2>我是标题</h2>
+          <p>我是内容，哈哈哈哈哈</p>
+        </div>
+        `
+      })
+     //2.注册组件（全局组件,意味着可以在多个Vue实例下面使用）
+    //  Vue.component('cpn', cpnC);
+
+     //疑问：怎么注册局部组件
+     const vm = new Vue({
+       el: '#app',
+       data: {},
+       methods: {},
+       components:{
+         //cpn使用组件时的标签名
+         cpn:cpnC
+       }
+     });
+     const app2 = new Vue({
+       el: '#app2',
+       data: {},
+       methods: {}
+     });
+   </script>
+ </body>
+ </html>

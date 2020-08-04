@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <h2>{{count}}</h2>
+    <!-- v-on的语法糖：@ -->
+    <!-- <button v-on:click=count++>+</button>
+    <button v-on:click="count--">-</button> -->
+    <button @click="increment">+</button>
+    <button @click="decrement">-</button>
+  </div>
+  
+  <script src="../js/vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: {
+        count: 0
+      },
+      methods: {
+        increment(){
+          this.count++;
+        },
+        decrement(){
+          this.count--;
+        }
+      }
+    });
+  </script>
+</body>
+</html>

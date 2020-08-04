@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <!-- 1.直接拼接 语法过于繁琐 -->
+    <h2>{{firstName}} {{lastName}}</h2>
+    <!-- 2.通过定义methods  方法调用四次-->
+    <h2>{{getFullName()}}</h2>
+    <h2>{{getFullName()}}</h2>
+    <h2>{{getFullName()}}</h2>
+    <h2>{{getFullName()}}</h2>
+    <!-- 3.通过computed 推荐这一种  内部缓存调用一次 性能更高-->
+    <h2>{{fullName}}</h2>
+    <h2>{{fullName}}</h2>
+    <h2>{{fullName}}</h2>
+    <h2>{{fullName}}</h2>
+  </div>
+  
+  <script src="../js/vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: {
+        firstName: 'xiao',
+        lastName: 'ming'
+      }, 
+      methods: {
+        getFullName: function(){
+          console.log(111);
+          return this.firstName + ' ' + this.lastName
+        }
+      },
+      computed: {
+        fullName:  function(){
+          console.log(222);
+          
+          return this.firstName +' ' + this.lastName
+          }
+      }
+    });
+  </script>
+</body>
+</html>

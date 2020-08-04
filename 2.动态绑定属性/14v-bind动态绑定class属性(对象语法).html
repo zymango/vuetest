@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .active{
+      color: red;
+    }
+    .line{
+      color:pink;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <!-- <h2 class="active">
+      {{msg}}
+    </h2>
+    <h2 :class="active">
+      {{msg}}
+    </h2> -->
+    <!-- <h2 v-bind:class="{类名1：Boolean, 类名2：Boolean}">{{msg}}</h2> -->
+    <!-- //如果Vue动态绑定的class和我们自己写的class同时存在，会合并两个class的内容 -->
+    <h2 class="title" :class="{active:isActive, line:isLine}">{{msg}}</h2>
+    <!-- 调用方法的方式： -->
+    <h2 class="title" :class="getClasses()">{{msg}}</h2>
+    <button v-on:click="btnClick">按钮</button>
+  </div>
+  
+  <script src="../js/vue.js"></script>
+  <script>
+    var vm = new Vue({
+      el: '#app',
+      data: {
+        msg: '你好啊',
+        isActive: false,
+        isLine: false
+      },
+      methods: {
+        btnClick:function(){
+          this.isActive = !this.isActive;
+        },
+        getClasses:function(){
+          return {active: this.isActive, line: this.isLine}
+        }
+      }
+    });
+  </script>
+</body>
+</html>

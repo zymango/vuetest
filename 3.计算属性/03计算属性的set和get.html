@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">
+    <h2>{{fullName}}</h2>
+  </div>
+  
+  <script src="../js/vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: '#app',
+      data: {
+        firstName: 'xiao',
+        lastName: 'ming'
+      },
+      computed: {
+        // fullName: function(){
+        //   return this.firstName + this.lastName
+        // }
+        fullName: 
+          //一般只实现get方法，不希望有set方法， 只读属性
+          //一般省略set方法
+          // set: function(newValue){
+          //   console.log(123, newValue);
+          //   const names = newValue.split(' ');
+          //   const firstName = names[0];
+          //   const lastName = names[1];
+          // },
+          // get: function(){
+          //   return this.firstName +' ' + this.lastName
+          // }
+          function(){
+            return this.firstName +' ' + this.lastName
+          }
+         
+        
+      },
+      methods: {}
+    });
+  </script>
+</body>
+</html>
